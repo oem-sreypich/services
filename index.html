@@ -94,6 +94,17 @@
   .way small{display:block;color:#e8d9e0;font-size:.82rem}
   .way strong{font-size:1.05rem;word-break:break-all}
   .contact .btn-line{border-color:#fff;color:#fff}
+  .btn-tg{display:inline-flex;align-items:center;gap:10px;background:#229ED9;color:#fff;margin-bottom:34px}
+  .btn-tg:hover{background:#1b8bc0}
+  .btn-tg svg{width:22px;height:22px;fill:#fff}
+  .msg-box{max-width:480px;margin:0 auto 32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:28px 22px;text-align:left}
+  .msg-box h3{text-align:center;font-size:1.2rem}
+  .msg-box .km{text-align:center;margin:2px 0 18px}
+  .msg-box label{display:block;font-size:.88rem;color:#e8d9e0;margin-bottom:14px}
+  .msg-box input,.msg-box textarea{display:block;width:100%;margin-top:6px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:#fff;color:var(--ink);font:inherit;font-size:1rem}
+  .msg-box textarea{resize:vertical}
+  .msg-box .btn{width:100%;border:0;cursor:pointer;font:inherit;font-weight:600;font-size:1rem}
+  .msg-box .sent{text-align:center;font-weight:600;padding:12px 0}
 
   footer{text-align:center;padding:40px 20px;color:var(--soft);font-size:.88rem}
 </style>
@@ -268,9 +279,42 @@
         <a class="way" href="mailto:kimberlysin82@gmail.com"><small>Email · អ៊ីមែល</small><strong>kimberlysin82@gmail.com</strong></a>
         <a class="way" href="https://www.tiktok.com/@sreypichpich12"><small>TikTok</small><strong>@sreypichpich12</strong></a>
       </div>
+      <a class="btn btn-tg" href="https://t.me/pichy_d00dle_splash" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.5L2.8 11.7c-.8.3-.8 1.4 0 1.7l4.6 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.8 3.5c.6.4 1.4.1 1.6-.6l3.2-15.3c.2-.9-.7-1.6-1.5-1.3zM9.6 14.4l-.4 3.6-1.3-4.2 9.8-6.6-8.1 7.2z"/></svg>
+        Chat on Telegram · ជជែកតាម Telegram
+      </a>
+
+      <div class="msg-box">
+        <h3>Or send me a message here</h3>
+        <span class="km">ឬផ្ញើសារមកខ្ញុំនៅទីនេះ</span>
+        <p class="sent" id="sent" hidden>✅ Thank you! I'll reply soon. · អរគុណ! ខ្ញុំនឹងឆ្លើយតបឆាប់ៗ។</p>
+        <form id="msg-form" action="https://formsubmit.co/kimberlysin82@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New message from your services page">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://oem-sreypich.github.io/services/?sent=1#contact">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <label>Your name · ឈ្មោះ
+            <input type="text" name="name" required maxlength="80">
+          </label>
+          <label>Phone or Telegram · ទូរស័ព្ទ ឬ Telegram
+            <input type="text" name="contact" required maxlength="80">
+          </label>
+          <label>Message · សារ
+            <textarea name="message" rows="4" required maxlength="2000"></textarea>
+          </label>
+          <button class="btn btn-main" type="submit">Send · ផ្ញើ</button>
+        </form>
+      </div>
+
       <a class="btn btn-line" href="https://oem-sreypich.github.io/portfolio/">See my full portfolio · មើលស្នាដៃទាំងអស់</a>
     </div>
   </section>
+  <script>
+    if (new URLSearchParams(location.search).get('sent') === '1') {
+      document.getElementById('sent').hidden = false;
+      document.getElementById('msg-form').hidden = true;
+    }
+  </script>
 
 </main>
 
